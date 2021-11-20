@@ -1,0 +1,11 @@
+{
+  "name": "server-demo-google-sheets",
+  "version": "1.0.0",
+  "description": "The API for the demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "elenakout",
+  "license": "ISC"
+}
