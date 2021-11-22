@@ -18,3 +18,36 @@ This project is a demo that uses `google-sheets` as a database. It's a simple no
 - Type: String [note/todo/feature] [required]
 - Project: String [optional]
 - CreatedAt: Date [default: now]
+
+## API Endpoints
+
+```js
+// @desc      Get all notes
+// @route     GET /api/v1/notes
+// @access    Public
+exports.getNotes = asyncHandler(async (req, res, next) => {
+  // /api/v1/notes?type=todo
+});
+
+// @desc      Create note
+// @route     POST /api/v1/notes
+// @access    Public
+exports.createNote = asyncHandler(async (req, res, next) => {});
+
+// @desc      Get one note
+// @route     GET /api/v1/notes/:id
+// @access    Public
+exports.getNote = asyncHandler(async (req, res, next) => {});
+
+// @desc      Update note
+// @route     PUT /api/v1/notes/:id
+// @access    Public
+exports.updateNote = asyncHandler(async (req, res, next) => {});
+
+// @desc      Delete note
+// @route     DELETE /api/v1/notes/:id
+// @access    Public
+exports.deleteNote = asyncHandler(async (req, res, next) => {});
+
+
+```
