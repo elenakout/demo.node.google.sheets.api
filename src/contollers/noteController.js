@@ -14,6 +14,7 @@ exports.getAllNotes = async (req, res, next) => {
 
     res.status(200).json({
       status: 'success',
+      results: data.length,
       message: data,
     });
   } catch (error) {
@@ -27,11 +28,25 @@ exports.getAllNotes = async (req, res, next) => {
 // @desc      Create note
 // @route     POST /api/v1/notes
 // @access    Public
-exports.createNote = (req, res, next) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet ready',
-  });
+exports.createNote = async (req, res, next) => {
+  try {
+    await doc.load();
+
+    await doc.addRow(req.body);
+    const data = await doc.getData();
+
+    res.status(200).json({
+      status: 'success',
+      result: data.length,
+      message: data,
+    });
+
+  } catch (error) {
+    res.status(400).json({
+      status: 'fail',
+      message: error,
+    });
+  }
 };
 
 // @desc      Get one note

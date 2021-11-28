@@ -44,4 +44,9 @@ module.exports = class Sheet {
     }
     return data;
   }
+
+  async addRow(row) {
+    const sheet = this.doc.sheetsByIndex[0];
+    await sheet.addRow(row);
+  }
 };
