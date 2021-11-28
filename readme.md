@@ -25,29 +25,34 @@ This project is a demo that uses `google-sheets` as a database. It's a simple no
 // @desc      Get all notes
 // @route     GET /api/v1/notes
 // @access    Public
-exports.getNotes = asyncHandler(async (req, res, next) => {
+exports.getNotes = asyncHandler(req, res, next) => {
   // /api/v1/notes?type=todo
-});
+};
 
 // @desc      Create note
 // @route     POST /api/v1/notes
 // @access    Public
-exports.createNote = asyncHandler(async (req, res, next) => {});
+exports.createNote = asyncHandler (req, res, next) => {};
 
 // @desc      Get one note
 // @route     GET /api/v1/notes/:id
 // @access    Public
-exports.getNote = asyncHandler(async (req, res, next) => {});
+exports.getNote = (req, res, next) => {};
 
 // @desc      Update note
 // @route     PUT /api/v1/notes/:id
 // @access    Public
-exports.updateNote = asyncHandler(async (req, res, next) => {});
+exports.updateNote = async (req, res, next) => {};
 
 // @desc      Delete note
 // @route     DELETE /api/v1/notes/:id
 // @access    Public
-exports.deleteNote = asyncHandler(async (req, res, next) => {});
-
+exports.deleteNote = (req, res, next) => {};
 
 ```
+
+## Notes
+
+ [tutorial1](https://www.youtube.com/watch?v=01YKQmia2Jw)
+ [tutorial2](https://www.youtube.com/watch?v=ulOKYl5sHGk)
+ [npm package](https://www.npmjs.com/package/google-spreadsheet)
