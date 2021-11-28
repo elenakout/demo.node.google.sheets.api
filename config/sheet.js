@@ -49,4 +49,22 @@ module.exports = class Sheet {
     const sheet = this.doc.sheetsByIndex[0];
     await sheet.addRow(row);
   }
+
+  async getOneNote(idx) {
+    const sheet = this.doc.sheetsByIndex[0];
+    const rows = await sheet.getRows();
+
+    const note = {
+      id: idx,
+      title: rows[idx].title,
+      content: rows[idx].content,
+      category: rows[idx].category,
+      lastModified: rows[idx].modified,
+      created_at: rows[idx].created_at,
+    };
+
+    return note;
+  }
+
+
 };
