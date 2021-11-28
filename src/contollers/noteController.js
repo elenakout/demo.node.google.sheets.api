@@ -75,13 +75,30 @@ exports.getNote = async (req, res) => {
 };
 
 // @desc      Update note
-// @route     PUT /api/v1/notes/:id
+// @route     PATCH /api/v1/notes/:id
 // @access    Public
-exports.updateNote = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet ready',
-  });
+exports.updateNote = async (req, res) => {
+  try {
+    const id = req.params.id * 1;
+
+    await doc.load();
+
+    await doc.updateNote(id, req.body);
+
+    const data = await doc.getData();
+
+    res.status(200).json({
+      status: 'success',
+      data: data,
+    });
+
+
+  } catch (error) {
+    res.status(400).json({
+      status: 'fail',
+      messagge: error,
+    });
+  }
 };
 
 // @desc      Delete note

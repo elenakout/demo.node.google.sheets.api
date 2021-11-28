@@ -66,5 +66,17 @@ module.exports = class Sheet {
     return note;
   }
 
+  async updateNote(idx, data) {
+    const sheet = this.doc.sheetsByIndex[0];
+    const rows = await sheet.getRows();
+
+
+    rows[idx].title = data.title; // update a value
+    rows[idx].content = data.content;
+    rows[idx].category = data.category;
+    rows[idx].modified = data.modified;
+    rows[idx].created_at = data.created_at;
+    await rows[idx].save(); // save updates
+  }
 
 };
