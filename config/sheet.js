@@ -79,4 +79,11 @@ module.exports = class Sheet {
     await rows[idx].save(); // save updates
   }
 
+  async deleteNote(idx) {
+    const sheet = this.doc.sheetsByIndex[0];
+    const rows = await sheet.getRows();
+
+    await rows[idx].delete(); // delete a row
+  }
+
 };
