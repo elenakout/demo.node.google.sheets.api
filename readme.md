@@ -16,7 +16,6 @@ This project is a demo that uses `google-sheets` as a database. It's a simple no
 - Title: String [required]
 - Content: String [required]
 - Type: String [note/todo/feature] [required]
-- Project: String [optional]
 - CreatedAt: Date [default: now]
 
 ## API Endpoints
