@@ -15,7 +15,7 @@ exports.getAllNotes = async (req, res) => {
     res.status(200).json({
       status: 'success',
       results: data.length,
-      message: data,
+      data,
     });
   } catch (error) {
     res.status(400).json({

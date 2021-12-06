@@ -1,10 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 
 // Import Routers
 const noteRouter = require('./routes/noteRoutes');
 
 const app = express();
+app.use(cors());
 
 // Middleware loggong
 if (process.env.NODE_ENV === 'development') {
