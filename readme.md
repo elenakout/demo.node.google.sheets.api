@@ -6,6 +6,7 @@ This project is a demo that uses `google-sheets` as a database. It's a simple no
 
 - Display all notes
 - Display one note by id
+- Create note
 - Update note by id
 - Delete note by id
 - Filtering `future`

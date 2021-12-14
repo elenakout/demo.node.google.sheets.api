@@ -12,6 +12,7 @@ exports.getAllNotes = async (req, res) => {
 
     const data = await doc.getData();
 
+
     res.status(200).json({
       status: 'success',
       results: data.length,
@@ -32,13 +33,19 @@ exports.createNote = async (req, res) => {
   try {
     await doc.load();
 
-    await doc.addRow(req.body);
+    const note = {
+      created_at: Date.now(),
+      modified: Date.now(),
+      ...req.body
+    };
+
+    await doc.addRow(note);
     const data = await doc.getData();
 
     res.status(200).json({
       status: 'success',
       result: data.length,
-      message: data,
+      data,
     });
 
   } catch (error) {
@@ -75,7 +82,7 @@ exports.getNote = async (req, res) => {
 };
 
 // @desc      Update note
-// @route     PATCH /api/v1/notes/:id
+// @route     PUT /api/v1/notes/:id
 // @access    Public
 exports.updateNote = async (req, res) => {
   try {
@@ -83,7 +90,13 @@ exports.updateNote = async (req, res) => {
 
     await doc.load();
 
-    await doc.updateNote(id, req.body);
+    const note = {
+      created_at: Date.now(),
+      modified: Date.now(),
+      ...req.body
+    };
+
+    await doc.updateNote(id, note);
 
     const data = await doc.getData();
 

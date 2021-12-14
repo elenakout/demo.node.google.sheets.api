@@ -18,7 +18,7 @@ router
 router
   .route('/:id')
   .get(getNote)
-  .patch(updateNote)
+  .put(updateNote)
   .delete(deleteNote);
 
 module.exports = router;
