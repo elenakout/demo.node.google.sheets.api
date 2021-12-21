@@ -36,8 +36,8 @@ module.exports = class Sheet {
         title: rows[index].title,
         content: rows[index].content,
         category: rows[index].category,
-        lastModified: parseInt(rows[index].modified),
-        created_at: parseInt(rows[index].created_at),
+        modified: rows[index].modified,
+        created_at: rows[index].created_at,
       };
 
       data.push(note);
@@ -59,7 +59,7 @@ module.exports = class Sheet {
       title: rows[idx].title,
       content: rows[idx].content,
       category: rows[idx].category,
-      lastModified: rows[idx].modified,
+      modified: rows[idx].modified,
       created_at: rows[idx].created_at,
     };
 
@@ -74,7 +74,7 @@ module.exports = class Sheet {
     rows[idx].title = data.title; // update a value
     rows[idx].content = data.content;
     rows[idx].category = data.category;
-    rows[idx].modified = data.lastModified;
+    rows[idx].modified = data.modified;
     rows[idx].created_at = data.created_at;
     await rows[idx].save(); // save updates
   }

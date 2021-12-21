@@ -12,7 +12,6 @@ exports.getAllNotes = async (req, res) => {
 
     const data = await doc.getData();
 
-
     res.status(200).json({
       status: 'success',
       results: data.length,
@@ -33,13 +32,7 @@ exports.createNote = async (req, res) => {
   try {
     await doc.load();
 
-    const note = {
-      created_at: Date.now(),
-      modified: Date.now(),
-      ...req.body
-    };
-
-    await doc.addRow(note);
+    await doc.addRow(req.body);
     const data = await doc.getData();
 
     res.status(200).json({
@@ -90,18 +83,13 @@ exports.updateNote = async (req, res) => {
 
     await doc.load();
 
-    const note = {
-      created_at: Date.now(),
-      modified: Date.now(),
-      ...req.body
-    };
-
-    await doc.updateNote(id, note);
+    await doc.updateNote(id, req.body);
 
     const data = await doc.getData();
 
     res.status(200).json({
       status: 'success',
+      results: data.length,
       data: data,
     });
 
