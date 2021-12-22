@@ -19,14 +19,16 @@ module.exports = class Sheet {
   }
 
   async readRows() {
-    const sheet = this.doc.sheetsByIndex[0];
-    return await sheet.getRows();
+    // const sheet = this.doc.sheetsByIndex[0];
+    // return await sheet.getRows();
+    return await this.noteSheet().getRows();
   }
 
   async getData() {
-    const sheet = this.doc.sheetsByIndex[0];
+    // const sheet = this.doc.sheetsByIndex[0];
 
-    const rows = await sheet.getRows();
+    // const rows = await sheet.getRows();
+    const rows = await this.readRows();
 
     const data = [];
 
@@ -46,13 +48,15 @@ module.exports = class Sheet {
   }
 
   async addRow(row) {
-    const sheet = this.doc.sheetsByIndex[0];
-    await sheet.addRow(row);
+    // const sheet = this.doc.sheetsByIndex[0];
+    // await sheet.addRow(row);
+    await this.noteSheet().addRow(row);
   }
 
   async getOneNote(idx) {
-    const sheet = this.doc.sheetsByIndex[0];
-    const rows = await sheet.getRows();
+    // const sheet = this.doc.sheetsByIndex[0];
+    // const rows = await sheet.getRows();
+    const rows = await this.readRows();
 
     const note = {
       id: idx,
@@ -67,8 +71,9 @@ module.exports = class Sheet {
   }
 
   async updateNote(idx, data) {
-    const sheet = this.doc.sheetsByIndex[0];
-    const rows = await sheet.getRows();
+    // const sheet = this.doc.sheetsByIndex[0];
+    // const rows = await sheet.getRows();
+    const rows = await this.readRows();
 
 
     rows[idx].title = data.title; // update a value
@@ -80,8 +85,9 @@ module.exports = class Sheet {
   }
 
   async deleteNote(idx) {
-    const sheet = this.doc.sheetsByIndex[0];
-    const rows = await sheet.getRows();
+    // const sheet = this.doc.sheetsByIndex[0];
+    // const rows = await sheet.getRows();
+    const rows = await this.readRows();
 
     await rows[idx].delete(); // delete a row
   }
