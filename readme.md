@@ -2,7 +2,7 @@
 
 This project is a demo that uses `google-sheets` as a database. It's a simple notes app which implements the basic CRUD functions. The server is built with Node and Express and the client is build with Vuejs.
 
-## Features - MVP
+## MVP
 
 - Display all notes
 - Display one note by id
@@ -11,6 +11,18 @@ This project is a demo that uses `google-sheets` as a database. It's a simple no
 - Delete note by id
 - Filtering `future`
 - Data Validation `future`
+
+## Features
+
+- Add complete todo for todo notes
+- Add Project to feature note
+- Add markdown editor
+- Add accounts and different sheets
+- Create better design
+- Create dark-mode
+- Add animations for adding or removing notes
+- Show a state to the note if it's updated
+- State for no notes
 
 ## Data model
 
