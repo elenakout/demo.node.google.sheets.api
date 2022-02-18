@@ -17,6 +17,8 @@ This project is a demo that uses `google-sheets` as a database. It's a simple no
 - Add complete todo for todo notes
 - Add Project to feature note
 - Add markdown editor
+  - [npm library](https://www.npmjs.com/package/marked)
+  - [test project](https://vuejsexamples.com/a-markdown-project-to-preview-in-real-time-when-user-write-notes-in-markdown/)
 - Add accounts and different sheets
 - Create better design
 - Create dark-mode
